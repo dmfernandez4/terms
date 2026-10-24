@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>Returning to Finance Monitor…</title>
+</head>
+<body>
+  <main>
+    <p id="msg">Returning to Finance Monitor…</p>
+    <p><a id="link" href="http://127.0.0.1:8000/">Continue manually</a></p>
+  </main>
+  <script>
+    // Forward the bank's response (code, state, or error) to the local app unchanged.
+    (function () {
+      var target = "http://127.0.0.1:8000/api/connections/callback" + window.location.search;
+      document.getElementById("link").href = target;
+      window.location.replace(target); // replace(): keeps the code out of browser history
+    })();
+  </script>
+</body>
+</html>
